@@ -1,1 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moors Store</title>
+  <style>
+    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #000;
+      color: #fff;
+      padding: 3px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img {
+      height: 60px;
+    }
+    .kufar img{
+      height: 50px;
+      position: relative; 
+  top: 19px;    /* сдвигаем вниз */
+  left: -40px;   /* можно и вбок */
+    }
+    .telegram img{
+      height: 37px;
+      position: relative; 
+  top: -29px;    /* сдвигаем вниз */
+  left: 370px;   /* можно и вбок */
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: #eee;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    .hero button {
+      padding: 12px 24px;
+      background: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+     .price button {
+      padding: 10px 18px;
+      background: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .categories, .products {
+      padding: 60px 40px;
+      text-align: center;
+    }
+    .categories h2, .products h2 {
+      margin-bottom: 40px;
+      font-size: 2em;
+    }
+    .grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header>
+    <img src="IMG_1727.png" alt="" />
+    <nav>
+         <div class="kufar">
+            
+           
+      <a href="#cards">Главная</a> 
+     
+      <a href="https://www.kufar.by/user/OgitkQuyZYoqs-3SJoGJdSA" target="_blank" rel="noopener noreferrer">Наш Kufar</a>
+      <a href="https://www.kufar.by/user/OgitkQuyZYoqs-3SJoGJdSA" target="_blank" rel="noopener noreferrer"><img src="shfdgd.png" alt=""></a>
+      
+      
+    
+      <a href="https://t.me/moorsstore" target="_blank" rel="noopener noreferrer">Telegram</a>
+      <div class="telegram"> <a href="https://t.me/moorsstore" target="_blank" rel="noopener noreferrer"><img src="asdfa.png" alt=""></a>
+        
+      </div>
+      </div>
+      
+    </nav>
+  </header>
+
+  <!-- Главный блок -->
+  <section class="hero">
+    <h1>Добро пожаловать в Moors Store</h1>
+    <p>Современная одежда для вашего стиля</p>
+    <a href="https://t.me/moorsfox" target="_blank" rel="noopener noreferrer"><button>Сделать заказ</button></a>
+  </section>
+
+  <!-- Категории -->
+  <section class="categories">
+    <div id="cards">
+
+    </div><h2>Ассортимент</h2>
+      <section class="price">
+    <div class="grid">
+      <div class="card">
+        <img src="IMAGE_2025-09-07_160627.jpg" alt="">
+        <h3>свитшот BAPE</h3>
+        <a href="https://t.me/moorsfox" target="_blank" rel="noopener noreferrer"><button>100 BYN</button></a></a>
+      </div>
+      <div class="card">
+        <img src="IMAGE_2025-09-07_160641.jpg" alt="">
+        <h3>Кроссовки Nike Ambush</h3>
+        <a href="https://t.me/moorsfox" target="_blank" rel="noopener noreferrer"><button>120 BYN</button></a></a>
+      </div>
+      <div class="card">
+        <img src="IMAGE_2025-09-07_160646.jpg" alt="">
+        <h3>Свитшот BAPE</h3>
+        <a href="https://t.me/moorsfox" target="_blank" rel="noopener noreferrer"><button>100 BYN</button></a></a>
+      </div>
+      <div class="card">
+        <img src="IMAGE_2025-09-07_160650.jpg" alt="">
+        <h3>Худи Jordan</h3>
+        <a href="https://t.me/moorsfox" target="_blank" rel="noopener noreferrer"><button>50 BYN</button></a></a>
+      </div>
+      <div class="card">
+        <img src="IMAGE_2025-09-07_160653.jpg" alt="">
+        <h3>Носки Polo Ralph Lauren</h3>
+        <a href="https://t.me/moorsfox" target="_blank" rel="noopener noreferrer"><button>55 BYN</button></a></a>
+      </div>
+      <div class="card">
+        <img src="IMAGE_2025-09-07_160658.jpg" alt="">
+        <h3>Рубашка Polo Ralph Lauren</h3>
+        <a href="https://t.me/moorsfox" target="_blank" rel="noopener noreferrer"><button>60 BYN</button></a></a>
+      </div>
+    </div>
+  </section>
+  </section>
+
+
+  <!-- Футер -->
+  <footer>
+    <p>© 2025 Moors Store. Все права защищены.</p>
+  </footer>
+
+</body>
+</html>
 
