@@ -1,0 +1,73 @@
+.btn {
+  position: relative;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn .hover-text {
+  display: none; /* прячем текст для hover */
+}
+
+.btn:hover .default-text {
+  display: none; /* при наведении скрываем цену */
+}
+
+.btn:hover .hover-text {
+  display: inline; /* и показываем текст */
+}
+
+.header-links {
+  display: flex; 
+  align-items: center;
+  gap: 20px; /* расстояние между kufar и tele */
+}
+
+.kufar a, .tele a {
+  margin-right: 5px; /* расстояние внутри блока */
+}
+
+
+
+
+
+
+.kufar {
+  display: flex;
+  justify-content: flex-end; /* или flex-start / center */
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap; /* чтобы не вылазили за экран */
+}
+
+.kufar img {
+  height: 40px;
+  width: auto;
+}
+.tele {
+  display: flex;
+  justify-content: flex-end; /* или flex-start / center */
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap; /* чтобы не вылазили за экран */
+}
+.gll {
+  display: flex;
+  justify-content: flex-end; /* или flex-start / center */
+  align-items: center;
+  gap: -30px;
+  flex-wrap: wrap; /* чтобы не вылазили за экран */
+}
+
+
+.tele img {
+  height: 30px;
+  width: auto;
+}
+.tele, .kufar, .gll {
+  display: flex;
+}
