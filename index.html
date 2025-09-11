@@ -218,7 +218,7 @@
 <dt>*Если у вас остаются вопросы — напишите нашему менеджеру, он с радостью на них ответит.</dt>
 <dt> ㅤ</dt>
 <dt> ㅤ</dt>
-       <a href="https://t.me/moorsfox" target="_blank" rel="noopener noreferrer"><button class="order-btn">Написать менеджеру</button></a>
+       <a href="clothes.html" target="_blank" rel="noopener noreferrer"><button class="order-btn">Написать менеджеру</button></a>
     </div>
     </div>
   </div>
@@ -245,6 +245,35 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </section>
 
   <!-- Категории -->
@@ -259,12 +288,221 @@
 
 
       <div class="card">
-        <img src="IMAGE_2025-09-07_160627.jpg" alt="">
+        <a href="open-btn"><img src="IMAGE_2025-09-07_160627.jpg" alt=""></a>
         <h3>свитшот BAPE</h3>
-        <a href="https://t.me/moorsfox" target="_blank" rel="noopener noreferrer">
-          <button class="btn"> 
-            <span class="default-text">100 BYN</span>
-          <span class="hover-text">Сделать заказ</span></button></a></a>
+       <html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Moors Store — Прототип окна товара</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --muted:#6b6b6b;
+      --accent:#111;
+      --accent-2:#f2f2f2;
+      --radius:10px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; margin:0;background:#f5f6f7;color:#111}
+
+    /* Кнопка открытия (демо) */
+    .demo-wrap{padding:40px;text-align:center}
+    .open-btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:8px;border:none;cursor:pointer}
+
+    /* Модальное затемнение */
+    .modal-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:1000;align-items:center;justify-content:center;padding:20px}
+    .modal-backdrop.show{display:flex}
+
+    /* Окно */
+    .modal-card{width:100%;max-width:980px;background:var(--bg);border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(2,8,23,0.25);display:flex;gap:24px}
+
+    /* Левая часть — галерея */
+    .gallery{flex:1;padding:20px;display:flex;flex-direction:column;gap:12px}
+    .main-photo{height:420px;border-radius:10px;overflow:hidden;background:#eee;display:flex;align-items:center;justify-content:center}
+    .main-photo img{max-width:100%;max-height:100%;object-fit:contain}
+
+    .thumbs{display:flex;gap:10px;align-items:center}
+    .thumbs button{width:64px;height:64px;border-radius:8px;border:1px solid #e6e6e6;background:#fff;padding:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+    .thumbs button img{width:100%;height:100%;object-fit:cover;border-radius:6px}
+    .thumbs button.active{outline:2px solid var(--accent);}
+
+    .gallery-controls{display:flex;justify-content:space-between;align-items:center}
+    .nav-btn{background:transparent;border:1px solid var(--accent-2);padding:6px 10px;border-radius:8px;cursor:pointer}
+
+    /* Правая часть — информация */
+    .info{width:360px;padding:24px 20px;background:linear-gradient(180deg,#fff,#fcfcfc)}
+    .info h2{margin:0 0 6px 0;font-size:20px}
+    .price{font-weight:700;font-size:18px;margin:6px 0 14px;color:var(--accent)}
+    .sku{font-size:12px;color:var(--muted);margin-bottom:14px}
+
+    .label{font-size:13px;color:var(--muted);margin-bottom:8px}
+    .sizes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+    .size-btn{padding:8px 12px;border-radius:8px;border:1px solid #ddd;background:#fff;cursor:pointer}
+    .size-btn.selected{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+    .colors{display:flex;gap:8px;margin-bottom:14px}
+    .swatch{width:34px;height:34px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #e6e6e6;cursor:pointer}
+    .swatch.selected{box-shadow:0 0 0 2px var(--accent)}
+
+    .desc{font-size:14px;color:var(--muted);line-height:1.4;margin-bottom:18px}
+
+    .actions{display:flex;gap:10px;align-items:center}
+    .qty{width:110px;display:flex;align-items:center;border:1px solid #e6e6e6;border-radius:8px;overflow:hidden}
+    .qty button{flex:0 0 36px;border:0;background:#fff;cursor:pointer}
+    .qty input{flex:1;border:0;text-align:center;padding:10px 6px}
+
+    .add-btn{background:var(--accent);color:#fff;padding:12px 14px;border-radius:10px;border:none;cursor:pointer}
+
+    .close-btn{position:absolute;right:18px;top:18px;background:#fff;border-radius:50%;border:0;padding:6px;cursor:pointer}
+
+    /* Мелкие подсказки */
+    .meta{font-size:12px;color:var(--muted);margin-top:12px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .modal-card{flex-direction:column;max-width:720px}
+      .info{width:100%;}
+      .main-photo{height:320px}
+    }
+    @media (max-width:420px){
+      .main-photo{height:240px}
+      .thumbs button{width:54px;height:54px}
+      .info{padding:16px}
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-wrap">
+    <button class="open-btn" id="openDemo">Открыть карточку товара</button>
+  </div>
+
+  <!-- Модальное окно -->
+  <div class="modal-backdrop" id="productModal">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="prodTitle">
+
+      <div style="position:relative;flex:1">
+        <button class="close-btn" id="closeModal" title="Закрыть">✕</button>
+        <div class="gallery">
+          <div class="main-photo" id="mainPhoto">
+            <img src="https://via.placeholder.com/800x800?text=Фото+1" alt="Фото товара" id="currentImage">
+          </div>
+
+          <div class="gallery-controls">
+            <div class="thumbs" id="thumbs">
+              <button data-src="https://via.placeholder.com/800x800?text=Фото+1" class="active"><img src="https://via.placeholder.com/80?text=1" alt="thumb1"></button>
+              <button data-src="https://via.placeholder.com/800x800?text=Фото+2"><img src="https://via.placeholder.com/80?text=2" alt="thumb2"></button>
+              <button data-src="https://via.placeholder.com/800x800?text=Фото+3"><img src="https://via.placeholder.com/80?text=3" alt="thumb3"></button>
+              <button data-src="https://via.placeholder.com/800x800?text=Фото+4"><img src="https://via.placeholder.com/80?text=4" alt="thumb4"></button>
+            </div>
+
+            <div style="display:flex;gap:8px;align-items:center">
+              <button class="nav-btn" id="prev">◀</button>
+              <button class="nav-btn" id="next">▶</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="info">
+        <h2 id="prodTitle">Худи Moors Classic</h2>
+        <div class="price">120 BYN</div>
+        <div class="sku">Артикул: MRS-004</div>
+
+        <div>
+          <div class="label">Размер</div>
+          <div class="sizes" id="sizes">
+            <button class="size-btn" data-size="S">S</button>
+            <button class="size-btn" data-size="M">M</button>
+            <button class="size-btn" data-size="L">L</button>
+            <button class="size-btn" data-size="XL">XL</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="label">Цвет</div>
+          <div class="colors" id="colors">
+            <div class="swatch" data-color="black" style="background:#111"></div>
+            <div class="swatch" data-color="gray" style="background:#8a8a8a"></div>
+            <div class="swatch" data-color="beige" style="background:#e6d9c9"></div>
+          </div>
+        </div>
+
+        <div class="label">Описание</div>
+        <div class="desc">Удобное и тёплое худи из плотного хлопка. Мягкая внутренняя часть, аккуратная посадка. Отлично сочетается с джинсами и кроссовками.</div>
+
+        <div class="actions">
+          <div class="qty" aria-label="Количество">
+            <button id="dec">−</button>
+            <input type="number" id="qty" value="1" min="1">
+            <button id="inc">+</button>
+          </div>
+
+          <button class="add-btn" id="addCart">Добавить в корзину</button>
+        </div>
+
+        <div class="meta">Доставка рассчитывается отдельно. Для заказа пишите в Telegram или нажмите "Добавить в корзину".</div>
+      </aside>
+
+    </div>
+  </div>
+
+  <script>
+    // Открытие/закрытие
+    const openDemo = document.getElementById('openDemo');
+    const modal = document.getElementById('productModal');
+    const closeBtn = document.getElementById('closeModal');
+
+    openDemo.addEventListener('click', ()=> modal.classList.add('show'));
+    closeBtn.addEventListener('click', ()=> modal.classList.remove('show'));
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.classList.remove('show') });
+
+    // Галерея
+    const thumbs = document.getElementById('thumbs');
+    const currentImage = document.getElementById('currentImage');
+    const thumbButtons = Array.from(thumbs.querySelectorAll('button'));
+    let currentIndex = 0;
+
+    function setActive(index){
+      thumbButtons.forEach((b,i)=> b.classList.toggle('active', i===index));
+      currentImage.src = thumbButtons[index].dataset.src;
+      currentIndex = index;
+    }
+
+    thumbButtons.forEach((btn,i)=> btn.addEventListener('click', ()=> setActive(i)));
+
+    document.getElementById('prev').addEventListener('click', ()=> setActive((currentIndex-1 + thumbButtons.length)%thumbButtons.length));
+    document.getElementById('next').addEventListener('click', ()=> setActive((currentIndex+1)%thumbButtons.length));
+
+    // Размеры
+    const sizeButtons = document.querySelectorAll('.size-btn');
+    sizeButtons.forEach(b=> b.addEventListener('click', ()=>{
+      sizeButtons.forEach(x=> x.classList.remove('selected'));
+      b.classList.add('selected');
+    }));
+
+    // Цвета
+    const swatches = document.querySelectorAll('.swatch');
+    swatches.forEach(s=> s.addEventListener('click', ()=>{
+      swatches.forEach(x=> x.classList.remove('selected'));
+      s.classList.add('selected');
+    }));
+
+    // Количество
+    const dec = document.getElementById('dec');
+    const inc = document.getElementById('inc');
+    const qty = document.getElementById('qty');
+    dec.addEventListener('click', ()=>{ qty.value = Math.max(1, Number(qty.value)-1) });
+    inc.addEventListener('click', ()=>{ qty.value = Number(qty.value)+1 });
+
+    // Добавить в корзину (демо)
+    document.getElementById('addCart').addEventListener('click', ()=>{
+      alert('Товар добавлен в корзину — демо.\nРазмер: '+(document.querySelector('.size-btn.selected')?.dataset.size||'не выбран')+ '\nЦвет: ' + (document.querySelector('.swatch.selected')?.dataset.color||'не выбран') + '\nКол-во: ' + qty.value);
+    });
+
+  </script>
+</body>
+
       </div>
 
 
@@ -337,4 +575,6 @@
   </footer>
 
 </body>
+</html>
+
 </html>
