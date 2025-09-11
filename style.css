@@ -41,33 +41,43 @@
   justify-content: flex-end; /* или flex-start / center */
   align-items: center;
   gap: 15px;
+  margin-left: 0px;
   flex-wrap: wrap; /* чтобы не вылазили за экран */
 }
 
 .kufar img {
   height: 40px;
+  margin-left: -24px;
   width: auto;
 }
 .tele {
   display: flex;
   justify-content: flex-end; /* или flex-start / center */
   align-items: center;
-  gap: 5px;
+  gap: 0px;
+  margin-left: 0px;
   flex-wrap: wrap; /* чтобы не вылазили за экран */
 }
 .gll {
   display: flex;
   justify-content: flex-end; /* или flex-start / center */
   align-items: center;
-  gap: -30px;
+  gap: 0px;
   flex-wrap: wrap; /* чтобы не вылазили за экран */
 }
 
 
 .tele img {
   height: 30px;
+  margin-left: -19px;
   width: auto;
 }
-.tele, .kufar, .gll {
+.kufar, .tele, .gll {
   display: flex;
+  align-items: center;
+  gap: 0px;
+  
+}
+html {
+  scroll-behavior: smooth;
 }
