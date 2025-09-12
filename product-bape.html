@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Moors Store — Худи Moors Classic</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --muted:#6b6b6b;
+      --accent:#111;
+      --accent-2:#f2f2f2;
+      --radius:10px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; margin:0;background:#f5f6f7;color:#111}
+
+    header{
+      padding:20px;
+      background:#fff;
+      border-bottom:1px solid #eee;
+    }
+    header a{color:var(--accent);text-decoration:none;font-size:14px}
+
+    .page{
+      max-width:1400px; /* БОЛЬШЕ ширина контейнера */
+      margin:40px auto;
+      padding:0 40px;
+      display:flex;
+      gap:40px;
+    }
+
+    /* Левая часть — галерея */
+    .gallery{flex:2;display:flex;flex-direction:column;gap:20px}
+    .main-photo{height:600px;border-radius:14px;overflow:hidden;background:#eee;display:flex;align-items:center;justify-content:center}
+    .main-photo img{max-width:100%;max-height:100%;object-fit:contain}
+
+    .thumbs{display:flex;gap:12px;align-items:center}
+    .thumbs button{width:90px;height:90px;border-radius:10px;border:1px solid #e6e6e6;background:#fff;padding:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+    .thumbs button img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+    .thumbs button.active{outline:2px solid var(--accent);}
+
+    .gallery-controls{display:flex;justify-content:space-between;align-items:center}
+    .nav-btn{background:transparent;border:1px solid var(--accent-2);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:18px}
+
+    /* Правая часть — информация */
+    .info{flex:1;padding:32px 24px;background:linear-gradient(180deg,#fff,#fcfcfc);border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+    .info h1{margin:0 0 10px 0;font-size:26px}
+    .price{font-weight:700;font-size:22px;margin:10px 0 18px;color:var(--accent)}
+    .sku{font-size:14px;color:var(--muted);margin-bottom:18px}
+
+    .label{font-size:14px;color:var(--muted);margin-bottom:10px}
+    .sizes{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .size-btn{padding:10px 14px;border-radius:8px;border:1px solid #ddd;background:#fff;cursor:pointer;font-size:14px}
+    .size-btn.selected{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+    .colors{display:flex;gap:10px;margin-bottom:18px}
+    .swatch{width:40px;height:40px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #e6e6e6;cursor:pointer}
+    .swatch.selected{box-shadow:0 0 0 2px var(--accent)}
+
+    .desc{font-size:15px;color:var(--muted);line-height:1.5;margin-bottom:22px}
+
+    .actions{display:flex;gap:12px;align-items:center}
+    .qty{width:130px;display:flex;align-items:center;border:1px solid #e6e6e6;border-radius:8px;overflow:hidden}
+    .qty button{flex:0 0 40px;border:0;background:#fff;cursor:pointer;font-size:18px}
+    .qty input{flex:1;border:0;text-align:center;padding:12px 6px;font-size:16px}
+
+    .add-btn{background:var(--accent);color:#fff;padding:14px 18px;border-radius:10px;border:none;cursor:pointer;font-size:15px}
+
+    .meta{font-size:13px;color:var(--muted);margin-top:16px}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .page{flex-direction:column}
+      .info{width:100%;}
+      .main-photo{height:420px}
+    }
+    @media (max-width:500px){
+      .main-photo{height:280px}
+      .thumbs button{width:70px;height:70px}
+      .info{padding:20px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="1index.html">← Назад в каталог</a>
+  </header>
+
+  <div class="page">
+    <!-- Галерея -->
+    <div class="gallery">
+      <div class="main-photo" id="mainPhoto">
+        <img src="https://via.placeholder.com/800x800?text=Фото+1" alt="Фото товара" id="currentImage">
+      </div>
+
+      <div class="gallery-controls">
+        <div class="thumbs" id="thumbs">
+          <button data-src="https://via.placeholder.com/800x800?text=Фото+1" class="active"><img src="https://via.placeholder.com/100?text=1" alt="thumb1"></button>
+          <button data-src="https://via.placeholder.com/800x800?text=Фото+2"><img src="https://via.placeholder.com/100?text=2" alt="thumb2"></button>
+          <button data-src="https://via.placeholder.com/800x800?text=Фото+3"><img src="https://via.placeholder.com/100?text=3" alt="thumb3"></button>
+          <button data-src="https://via.placeholder.com/800x800?text=Фото+4"><img src="https://via.placeholder.com/100?text=4" alt="thumb4"></button>
+        </div>
+
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="nav-btn" id="prev">◀</button>
+          <button class="nav-btn" id="next">▶</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Информация -->
+    <aside class="info">
+      <h1>Худи Moors Classic</h1>
+      <div class="price">120 BYN</div>
+      <div class="sku">Артикул: MRS-004</div>
+
+      <div>
+        <div class="label">Размер</div>
+        <div class="sizes" id="sizes">
+          <button class="size-btn" data-size="S">S</button>
+          <button class="size-btn" data-size="M">M</button>
+          <button class="size-btn" data-size="L">L</button>
+          <button class="size-btn" data-size="XL">XL</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="label">Цвет</div>
+        <div class="colors" id="colors">
+          <div class="swatch" data-color="black" style="background:#111"></div>
+          <div class="swatch" data-color="gray" style="background:#8a8a8a"></div>
+          <div class="swatch" data-color="beige" style="background:#e6d9c9"></div>
+        </div>
+      </div>
+
+      <div class="label">Описание</div>
+      <div class="desc">Удобное и тёплое худи из плотного хлопка. Мягкая внутренняя часть, аккуратная посадка. Отлично сочетается с джинсами и кроссовками.</div>
+
+      <div class="actions">
+        <div class="qty" aria-label="Количество">
+          <button id="dec">−</button>
+          <input type="number" id="qty" value="1" min="1">
+          <button id="inc">+</button>
+        </div>
+        <button class="add-btn" id="addCart">Добавить в корзину</button>
+      </div>
+
+      <div class="meta">Доставка рассчитывается отдельно. Для заказа пишите в Telegram или нажмите "Добавить в корзину".</div>
+    </aside>
+  </div>
+
+  <script>
+    // Галерея
+    const thumbs = document.getElementById('thumbs');
+    const currentImage = document.getElementById('currentImage');
+    const thumbButtons = Array.from(thumbs.querySelectorAll('button'));
+    let currentIndex = 0;
+
+    function setActive(index){
+      thumbButtons.forEach((b,i)=> b.classList.toggle('active', i===index));
+      currentImage.src = thumbButtons[index].dataset.src;
+      currentIndex = index;
+    }
+
+    thumbButtons.forEach((btn,i)=> btn.addEventListener('click', ()=> setActive(i)));
+    document.getElementById('prev').addEventListener('click', ()=> setActive((currentIndex-1 + thumbButtons.length)%thumbButtons.length));
+    document.getElementById('next').addEventListener('click', ()=> setActive((currentIndex+1)%thumbButtons.length));
+
+    // Размеры
+    const sizeButtons = document.querySelectorAll('.size-btn');
+    sizeButtons.forEach(b=> b.addEventListener('click', ()=>{
+      sizeButtons.forEach(x=> x.classList.remove('selected'));
+      b.classList.add('selected');
+    }));
+
+    // Цвета
+    const swatches = document.querySelectorAll('.swatch');
+    swatches.forEach(s=> s.addEventListener('click', ()=>{
+      swatches.forEach(x=> x.classList.remove('selected'));
+      s.classList.add('selected');
+    }));
+
+    // Количество
+    const dec = document.getElementById('dec');
+    const inc = document.getElementById('inc');
+    const qty = document.getElementById('qty');
+    dec.addEventListener('click', ()=>{ qty.value = Math.max(1, Number(qty.value)-1) });
+    inc.addEventListener('click', ()=>{ qty.value = Number(qty.value)+1 });
+
+    // Добавить в корзину (демо)
+    document.getElementById('addCart').addEventListener('click', ()=>{
+      alert('Товар добавлен в корзину — демо.\nРазмер: '+(document.querySelector('.size-btn.selected')?.dataset.size||'не выбран')+ '\nЦвет: ' + (document.querySelector('.swatch.selected')?.dataset.color||'не выбран') + '\nКол-во: ' + qty.value);
+    });
+  </script>
+</body>
+</html>
