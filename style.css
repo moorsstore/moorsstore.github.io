@@ -32,7 +32,28 @@
 }
 
 
+.open-btn{
+  position: relative;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
+.open-btn .hover-text {
+  display: none; /* прячем текст для hover */
+}
+
+.open-btn:hover .default-text {
+  display: none; /* при наведении скрываем цену */
+}
+
+.open-btn:hover .hover-text {
+  display: inline; /* и показываем текст */
+}
 
 
 
@@ -80,4 +101,64 @@
 }
 html {
   scroll-behavior: smooth;
+}
+.card {
+  width: 220px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 300px;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 18px;
+}
+.card {
+  display: block;           /* карточка как блочный элемент */
+  text-decoration: none;    /* убираем подчёркивание */
+  color: inherit;           /* наследуем цвет текста */
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.card {
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+}
+.card .full-link {
+  position: absolute;
+  inset: 0;          /* растягиваем ссылку на весь блок */
+  z-index: 1;        /* выше содержимого */
 }
