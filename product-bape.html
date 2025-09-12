@@ -80,6 +80,12 @@
       .thumbs button{width:70px;height:70px}
       .info{padding:20px}
     }
+    .evro img{
+      height: 30px;
+      position: relative; 
+  top: 10px;    /* сдвигаем вниз */
+  left: -3px;   /* можно и вбок */
+  }
   </style>
 </head>
 <body>
@@ -138,17 +144,153 @@
       <div class="desc">Удобное и тёплое худи из плотного хлопка. Мягкая внутренняя часть, аккуратная посадка. Отлично сочетается с джинсами и кроссовками.</div>
 
       <div class="actions">
-        <div class="qty" aria-label="Количество">
-          <button id="dec">−</button>
-          <input type="number" id="qty" value="1" min="1">
-          <button id="inc">+</button>
-        </div>
-        <button class="add-btn" id="addCart">Добавить в корзину</button>
+       
+       <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moors Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .order-btn {
+      padding: 12px 24px;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 6px;
+    }
+
+    /* Затемнение фона */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Окно */
+    .modal-content {
+      background: #fff;
+      border-radius: 12px;
+      width: 650px;
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      animation: fadeIn .3s;
+      position: relative;
+    }
+
+    /* Левая часть */
+    .modal-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-left img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .modal-left p {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* Правая часть */
+    .modal-right {
+      flex: 2;
+    }
+    .modal-right h2 {
+      margin-top: 0;
+    }
+    .modal-right dt {
+      margin: 6px 0;
+    }
+
+    /* Кнопка закрытия */
+    .close {
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.8);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Кнопка -->
+  <button class="order-btn" onclick="openModal()">Заказать сейчас</button>
+
+  <div id="orderModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+
+      <!-- Левая часть -->
+      <div class="modal-left">
+        <img src="https://via.placeholder.com/250x250.png?text=Nike+Shoes" alt="Выбранный товар">
+        <p>Вы выбрали товар — кроссовки Nike</p>
       </div>
 
-      <div class="meta">Доставка рассчитывается отдельно. Для заказа пишите в Telegram или нажмите "Добавить в корзину".</div>
-    </aside>
+      <!-- Правая часть -->
+      <div class="modal-right">
+        <h2>Заказ товара</h2>
+        <p>Чтобы оформить заказ, напишите менеджеру в Telegram и укажите:</p>
+        <div class="evro"> 
+<dt> <b><img src="images.png" alt="" />адрес вашей европочты</dt>
+        <dt>🏙️ город</dt>
+        <dt>📞 номер телефона</dt>
+        <dt>👤 ФИО</dt>
+        <dt>👟 какую позицию и размер заказываете</dt></b>
+        <br>
+        <dt>*Если у вас остаются вопросы — напишите нашему менеджеру, он с радостью на них ответит.</dt>
+        <br><br>
+        <a href="clothes.html" target="_blank" rel="noopener noreferrer">
+          <button class="order-btn">Написать менеджеру</button>
+        </a>
+      </div>
+    </div>
   </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("orderModal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("orderModal").style.display = "none";
+    }
+    // Закрытие по клику вне окна
+    window.onclick = function(event) {
+      let modal = document.getElementById("orderModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
+
+      
 
   <script>
     // Галерея
@@ -195,3 +337,4 @@
   </script>
 </body>
 </html>
+
