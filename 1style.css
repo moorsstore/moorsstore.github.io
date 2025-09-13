@@ -1,3 +1,7 @@
+
+
+
+
 .kufar a, .tele a {
   margin-right: 5px; /* расстояние внутри блока */
 }
@@ -7,8 +11,8 @@
   display: flex;
   justify-content: flex-end; /* или flex-start / center */
   align-items: center;
-  gap: 15px;
-  margin-left: -17px;
+  gap: 20px;
+  margin-left: 0px;
   flex-wrap: wrap; /* чтобы не вылазили за экран */
 }
 
@@ -27,8 +31,8 @@
 }
 .gll {
   display: flex;
-  justify-content: flex-end; /* или flex-start / center */
-  align-items: center;
+  justify-content: center; /* или flex-start / center */
+  align-items: inline;
   gap: 0px;
   flex-wrap: wrap; /* чтобы не вылазили за экран */
 }
@@ -36,17 +40,19 @@
 
 .tele img {
   height: 30px;
-  margin-left: -1px;
+  margin-left: -26px;
   width: auto;
 }
 .kufar, .tele, .gll {
   display: flex;
   align-items: center;
-  gap: 0px;
+  gap: 22px;
   
 }
+
+
 header nav {
-  display: flex;
+  display: center;
   align-items: center;  /* выравнивает текст и картинки по центру */
   gap: 20px;            /* расстояние между элементами */
 }
