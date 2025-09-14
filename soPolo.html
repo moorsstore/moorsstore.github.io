@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Moors Store — Худи Moors Classic</title>
+  <link rel="stylesheet" href="bape1.css">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --muted:#6b6b6b;
+      --accent:#111;
+      --accent-2:#f2f2f2;
+      --radius:10px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; margin:0;background:#f5f6f7;color:#111}
+
+    header {
+      background: #000;
+      color: #fff;
+      padding: 8px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom:1px solid #eee;
+      
+    }
+  
+    header img {
+      height: 60px;
+    }
+    header a{color:#fff;text-decoration:none;font-size:17px}
+ 
+ 
+    .page{
+      max-width:1400px; /* БОЛЬШЕ ширина контейнера */
+      margin:40px auto;
+      padding:0 40px;
+      display:flex;
+      gap:40px;
+    }
+
+     footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* Левая часть — галерея */
+    .gallery{flex:2;display:flex;flex-direction:column;gap:20px}
+    .main-photo{height:600px;border-radius:14px;overflow:hidden;background:#eee;display:flex;align-items:center;justify-content:center}
+    .main-photo img{max-width:100%;max-height:100%;object-fit:contain}
+
+    .thumbs{display:flex;gap:12px;align-items:center}
+    .thumbs button{width:90px;height:90px;border-radius:10px;border:1px solid #e6e6e6;background:#fff;padding:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+    .thumbs button img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+    .thumbs button.active{outline:2px solid var(--accent);}
+
+    .gallery-controls{display:flex;justify-content:space-between;align-items:center}
+    .nav-btn{background:transparent;border:1px solid var(--accent-2);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:18px}
+
+    /* Правая часть — информация */
+    .info{flex:1;padding:32px 24px;background:linear-gradient(180deg,#fff,#fcfcfc);border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+    .info h1{margin:0 0 10px 0;font-size:26px}
+    .price{font-weight:700;font-size:22px;margin:10px 0 18px;color:var(--accent)}
+    .sku{font-size:14px;color:var(--muted);margin-bottom:18px}
+
+    .label{font-size:14px;color:var(--muted);margin-bottom:10px}
+    .sizes{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .size-btn{padding:10px 14px;border-radius:8px;border:1px solid #ddd;background:#fff;cursor:pointer;font-size:14px}
+    .size-btn.selected{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+    .colors{display:flex;gap:10px;margin-bottom:18px}
+    .swatch{width:40px;height:40px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #e6e6e6;cursor:pointer}
+    .swatch.selected{box-shadow:0 0 0 2px var(--accent)}
+
+    .desc{font-size:15px;color:var(--muted);line-height:1.5;margin-bottom:22px}
+
+    .actions{display:flex;gap:12px;align-items:center}
+    .qty{width:130px;display:flex;align-items:center;border:1px solid #e6e6e6;border-radius:8px;overflow:hidden}
+    .qty button{flex:0 0 40px;border:0;background:#fff;cursor:pointer;font-size:18px}
+    .qty input{flex:1;border:0;text-align:center;padding:12px 6px;font-size:16px}
+
+    .add-btn{background:var(--accent);color:#fff;padding:14px 18px;border-radius:10px;border:none;cursor:pointer;font-size:15px}
+
+    .meta{font-size:13px;color:var(--muted);margin-top:16px}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .page{flex-direction:column}
+      .info{width:100%;}
+      .main-photo{height:420px}
+    }
+    @media (max-width:500px){
+      .main-photo{height:280px}
+      .thumbs button{width:70px;height:70px}
+      .info{padding:20px}
+    }
+    .evro img{
+      height: 30px;
+      position: relative; 
+  top: 10px;    /* сдвигаем вниз */
+  left: -3px;   /* можно и вбок */
+  }
+
+  </style>
+</head>
+<body>
+  <header>
+      
+   <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+        <b>←Назад</b>
+        <img src="IMG_1727.png" alt="" style="margin-left: 10px;" />
+    </a>
+   </a>
+   <nav>
+<div class="gll"> 
+    <a href="index.html"> Главная <img src="" alt=""></a>
+    
+    <div class="kufar">
+      <a href="https://www.kufar.by/user/OgitkQuyZYoqs-3SJoGJdSA" target="_blank"> Наш Kufar
+    <img src="shfdgd.png" alt=""></a>
+  
+
+
+  <div class="tele">
+    <a href="https://t.me/moorsstore" target="_blank">Telegram</b>
+    <img src="asdfa.png" alt=""></a>
+  </div>
+</div>
+</div>
+</nav>
+</header>
+<main>
+  <div class="page">
+    <!-- Галерея -->
+    <div class="gallery">
+      <div class="main-photo" id="mainPhoto">
+        <img src="SoPolo1.jpg" alt="" id="currentImage">
+      </div>
+
+      <div class="gallery-controls">
+        <div class="thumbs" id="thumbs">
+          <button data-src="SoPolo1.jpg" class="active"><img src="SoPolo1.jpg" alt="thumb1"></button>
+          <button data-src="SoPolo2.jpg"><img src="SoPolo2.jpg" alt="thumb2"></button>
+          </div>
+
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="nav-btn" id="prev">◀</button>
+          <button class="nav-btn" id="next">▶</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Информация -->
+    <aside class="info">
+      <h1>Носки Polo Ralph Lauren</h1>
+      <div class="price">55 BYN</div>
+      <div class="sku">Артикул: MRS-005</div>
+
+      <div>
+        <div class="label">Размер</div>
+        <div class="sizes" id="sizes">
+          <button class="size-btn" data-size="S">S</button>
+          <button class="size-btn" data-size="M">M</button>
+          <button class="size-btn" data-size="L">L</button>
+          <button class="size-btn" data-size="XL">XL</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="label">Цвет</div>
+        <div class="colors" id="colors">
+          <div class="swatch" data-color="black" style="background:#111"></div>
+          <div class="swatch" data-color="gray" style="background:#8a8a8a"></div>
+          <div class="swatch" data-color="beige" style="background:#e6d9c9"></div>
+        </div>
+      </div>
+
+      <div class="label">Описание</div>
+      <div class="desc">Удобный и тёплый свитшот из плотного хлопка. Мягкая внутренняя часть, аккуратная посадка. Отлично сочетается с джинсами и кроссовками.</div>
+
+      <div class="actions">
+       
+       <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moors Store</title>
+ 
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .order-btn {
+      padding: 12px 24px;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 6px;
+    }
+
+    /* Затемнение фона */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Окно */
+    .modal-content {
+      background: #fff;
+      border-radius: 12px;
+      width: 650px;
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      animation: fadeIn .3s;
+      position: relative;
+    }
+
+    /* Левая часть */
+    .modal-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-left img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .modal-left p {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* Правая часть */
+    .modal-right {
+      flex: 2;
+    }
+    .modal-right h2 {
+      margin-top: 0;
+    }
+    .modal-right dt {
+      margin: 6px 0;
+    }
+
+    /* Кнопка закрытия */
+    .close {
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.8);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <!-- Кнопка -->
+  <button class="order-btn" onclick="openModal()">Заказать сейчас</button>
+
+  <div id="orderModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+
+      <!-- Левая часть -->
+      <div class="modal-left">
+        <img src="SoPolo1.jpg" alt="">
+        <p>Вы выбрали товар — Носки Polo Ralph Lauren</p>
+      </div>
+
+      <!-- Правая часть -->
+      <div class="modal-right">
+        <h2>Заказ товара</h2>
+        <p>Чтобы оформить заказ, напишите менеджеру в Telegram и укажите:</p>
+        <div class="evro"> 
+<dt> <b><img src="images.png" alt="" />адрес вашей европочты</dt>
+        <dt>🏙️ город</dt>
+        <dt>📞 номер телефона</dt>
+        <dt>👤 ФИО</dt>
+        <dt>👟 какую позицию и размер заказываете</dt></b>
+        <br>
+        <dt>*Если у вас остаются вопросы — напишите нашему менеджеру, он с радостью на них ответит.</dt>
+        <br><br>
+        <a href="https://t.me/moorsfox" target="_blank" rel="noopener noreferrer">
+          <button class="order-btn">Написать менеджеру</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("orderModal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("orderModal").style.display = "none";
+    }
+    // Закрытие по клику вне окна
+    window.onclick = function(event) {
+      let modal = document.getElementById("orderModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
+
+      
+
+  <script>
+    // Галерея
+    const thumbs = document.getElementById('thumbs');
+    const currentImage = document.getElementById('currentImage');
+    const thumbButtons = Array.from(thumbs.querySelectorAll('button'));
+    let currentIndex = 0;
+
+    function setActive(index){
+      thumbButtons.forEach((b,i)=> b.classList.toggle('active', i===index));
+      currentImage.src = thumbButtons[index].dataset.src;
+      currentIndex = index;
+    }
+
+    thumbButtons.forEach((btn,i)=> btn.addEventListener('click', ()=> setActive(i)));
+    document.getElementById('prev').addEventListener('click', ()=> setActive((currentIndex-1 + thumbButtons.length)%thumbButtons.length));
+    document.getElementById('next').addEventListener('click', ()=> setActive((currentIndex+1)%thumbButtons.length));
+
+    // Размеры
+    const sizeButtons = document.querySelectorAll('.size-btn');
+    sizeButtons.forEach(b=> b.addEventListener('click', ()=>{
+      sizeButtons.forEach(x=> x.classList.remove('selected'));
+      b.classList.add('selected');
+    }));
+
+    // Цвета
+    const swatches = document.querySelectorAll('.swatch');
+    swatches.forEach(s=> s.addEventListener('click', ()=>{
+      swatches.forEach(x=> x.classList.remove('selected'));
+      s.classList.add('selected');
+    }));
+
+    // Количество
+    const dec = document.getElementById('dec');
+    const inc = document.getElementById('inc');
+    const qty = document.getElementById('qty');
+    dec.addEventListener('click', ()=>{ qty.value = Math.max(1, Number(qty.value)-1) });
+    inc.addEventListener('click', ()=>{ qty.value = Number(qty.value)+1 });
+
+    // Добавить в корзину (демо)
+    document.getElementById('addCart').addEventListener('click', ()=>{
+      alert('Товар добавлен в корзину — демо.\nРазмер: '+(document.querySelector('.size-btn.selected')?.dataset.size||'не выбран')+ '\nЦвет: ' + (document.querySelector('.swatch.selected')?.dataset.color||'не выбран') + '\nКол-во: ' + qty.value);
+    });
+  </script>
+  </main>
+ <footer>
+    <p>© 2025 Moors Store. Все права защищены.</p>
+  </footer>
+</body>
+
+
+</html>

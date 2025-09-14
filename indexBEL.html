@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="be">
+<head>
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moors Store</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+ 
+  <style>
+    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #000;
+      color: #fff;
+      padding: 10px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img {
+      height: 60px;
+    }
+    
+  .evro img{
+      height: 30px;
+      position: relative; 
+  top: 10px;    /* сдвигаем вниз */
+  left: 3px;   /* можна і ўбок */
+  }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: #eee;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    .hero button {
+      padding: 12px 24px;
+      background: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+     .price button {
+      padding: 10px 18px;
+      background: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .categories, .products {
+      padding: 60px 40px;
+      text-align: center;
+    }
+    .categories h2, .products h2 {
+      margin-bottom: 40px;
+      font-size: 2em;
+    }
+    .grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      width: 249px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header>
+    
+    <img src="IMG_1727.png" alt="" >
+       
+  
+    <nav>
+       <a href="index.html"><button class="qwe"> 
+            <span class="default-text"><b>RU</b></span>
+          <span class="hover-text">Русский язык</span>
+        </button></a></a>
+        <a href="indexBEL.html"><button class="qwe"> 
+            <span class="default-text"><b>BEL</b></span>
+          <span class="hover-text">Беларуская мова</span>
+        </button></a></a>
+         <div class="header-links">
+  <div class="gll"> 
+    <a href="#cards">Галоўная</a> 
+    
+    <div class="kufar">
+      <a href="https://www.kufar.by/user/OgitkQuyZYoqs-3SJoGJdSA" target="_blank">Наш Kufar</a>
+    <a href="https://www.kufar.by/user/OgitkQuyZYoqs-3SJoGJdSA" target="_blank"><img src="shfdgd.png" alt=""></a>
+  
+
+  <div class="tele">
+    <a href="https://t.me/moorsstore" target="_blank">Telegram</a>
+    </a>
+    <a href="https://t.me/moorsstore" target="_blank"><img src="asdfa.png" alt=""></a>
+  </div>
+</div>
+</div>
+ </div>
+      
+    </nav>
+  </header>
+
+  <!-- Галоўны блок -->
+  <section class="hero">
+    <h1>Сардэчна запрашаем у Moors Store</h1>
+    <p>Сучаснае адзенне для вашага стылю</p>
+
+  
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moors Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+   
+    .order-btn {
+      padding: 12px 24px;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 6px;
+    }
+
+    /* Затэненне фону */
+    .modal {
+      display: none; /* Схавана па змаўчанні */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Акно */
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 500px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      animation: fadeIn .3s;
+    }
+
+    /* Кнопка закрыцця */
+    .close {
+      float: right;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.8);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
+</head>
+
+
+
+
+
+
+<body>
+
+  <!-- Кнопка -->
+  <button class="order-btn" onclick="openModal()">Замовіць зараз</button>
+
+  <div id="orderModal" class="modal" >
+    <div class="modal-content">
+      <span class="close" data-target="orderModal" onclick="closeModal('orderModal')">&times;</span>
+      <h2>Замова тавару</h2>
+     <p> Каб аформіць заказ, напішыце мэнэджару ў Telegram і ўкажыце:<b>
+      <div class="evro"> 
+<dt> <img src="images.png" alt="" /> адрас вашай Еўрапошты</dt>
+<dt>🏙️ горад</dt>
+<dt>📞 нумар тэлефона</dt>
+<dt>👤 Прозвішча, Iмя, Iмя па бацьку</dt>
+<dt>👟 якую пазіцыю і памер замаўляеце</dt>
+</p></b>
+<dt> ㅤ</dt>
+<dt>*Калі ў вас застаюцца пытанні — напішыце нашаму мэнэджару, ён з радасцю на іх адкажа.</dt>
+<dt> ㅤ</dt>
+<dt> ㅤ</dt>
+       <a href="https://t.me/moorsfox" target="_blank" rel="noopener noreferrer"><button class="order-btn">Напісаць мэнэджару</button></a>
+    </div>
+    </div>
+  </div>
+</div>
+  
+<script>
+    function openModal() {
+      document.getElementById("orderModal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("orderModal").style.display = "none";
+    }
+    // Закрыццё па кліку па-за акном
+    window.onclick = function(event) {
+      let modal = document.getElementById("orderModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
+
+  </section>
+
+  <!-- Катэгорыі -->
+  <section class="categories">
+    <div id="cards">
+
+    </div><h2>Асартымент</h2>
+      <section class="price">
+    <div class="grid">
+
+
+
+
+     <div class="card">
+  <img src="IMAGE_2025-09-07_160627.jpg" alt="">
+  <h3>світшот BAPE</h3>
+   <button class="btn"> 
+            <span class="default-text">100 BYN</span>
+          <span class="hover-text">Зрабіць заказ</span>
+        </button></a></a>
+<a href="porduct-bapeBEL.html" class="full-link"></a>
+        
+ 
+
+      </div>
+
+
+
+      <div class="card">
+        <img src="IMAGE_2025-09-07_160641.jpg" alt="">
+        <h3>Красоўкі Nike Ambush</h3>
+          <button class="btn"> 
+            <span class="default-text">120 BYN</span>
+          <span class="hover-text">Зрабіць заказ</span>
+        </button></a></a>
+        <a href="NikeBEL.html" class="full-link"></a>
+      </div>
+
+
+
+      <div class="card">
+        <img src="IMAGE_2025-09-07_160646.jpg" alt="">
+        <h3>Світшот BAPE</h3>
+          <button class="btn"> 
+            <span class="default-text">100 BYN</span>
+          <span class="hover-text">Зрабіць заказ</span></button></a></a>
+          <a href="bape2BEL.html" class="full-link"></a>
+      </div>
+
+
+
+
+      <div class="card">
+        <img src="IMAGE_2025-09-07_160650.jpg" alt="">
+        <h3>Худі Jordan</h3>
+          <button class="btn"> 
+            <span class="default-text">50 BYN</span>
+          <span class="hover-text">Зрабіць заказ</span></button></a></a>
+          <a href="jordanBEL.html" class="full-link"></a>
+      </div>
+
+
+
+
+      <div class="card">
+        <img src="IMAGE_2025-09-07_160653.jpg" alt="">
+        <h3>Шкарпэткі Polo Ralph Lauren</h3>
+        
+          <button class="btn"> 
+            <span class="default-text">55 BYN</span>
+          <span class="hover-text">Зрабіць заказ</span></button></a></a>
+          <a href="soPoloBEL.html" class="full-link"></a>
+      </div>
+
+
+
+
+
+      <div class="card">
+        <img src="IMAGE_2025-09-07_160658.jpg" alt="">
+        <h3>Сарочка Polo Ralph Lauren</h3>
+          <button class="btn"> 
+            <span class="default-text">60 BYN</span>
+          <span class="hover-text">Зрабіць заказ</span></button></a></a>
+           <a href="PoloBEL.html" class="full-link"></a>
+      </div>
+    </div>
+  </section>
+  </section>
+
+
+  <!-- Футэр -->
+  <footer>
+    <p>© 2025 Moors Store. Усе правы абаронены.</p>
+  </footer>
+
+
+  
+
+</body>
+</html>
