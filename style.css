@@ -20,7 +20,12 @@
 .qwe:hover .hover-text {
   display: inline; /* и показываем текст */
 }
-
+.lang-switch {
+  display: flex;
+  flex-direction: column; /* вертикально */
+  align-items: center;    /* по центру */
+  gap: 10px;              /* расстояние между кнопками */
+}
 .btn {
   position: relative;
   padding: 10px 20px;
